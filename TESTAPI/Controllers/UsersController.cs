@@ -7,7 +7,7 @@ namespace TESTAPI.Controllers
 {
     [ApiController]
     [Route("api/[Controller]")]
-    public class UsersController : ControllerBase
+    public class UsersController : BaseController
     {
         private readonly DataContext _context;
         
