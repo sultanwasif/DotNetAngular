@@ -7,19 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   title = 'clientApp';
   users : any;
+  
+  constructor(private http: HttpClient) {}
 
-  constructor ( private http : HttpClient) {
-  }
   ngOnInit(): void {
-    
-    this.http.get("https://localhost:7115/api/users/").subscribe(
-      {
-        next : response => this.users = response,
-        error : error => console.log(error),
-        complete : () =>  console.log("complete")
-      });
+    this.http.get("https://localhost:7115/api/users").subscribe({
+      next : response => this.users = response,
+      error : error => console.error(error),
+      complete : () => console.log("Completed")      
+    });
   }
-
 }
