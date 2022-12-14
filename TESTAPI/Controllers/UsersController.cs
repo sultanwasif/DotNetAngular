@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TESTAPI.Data;
@@ -5,9 +6,8 @@ using TESTAPI.Entities;
 
 namespace TESTAPI.Controllers
 {
-    [ApiController]
-    [Route("api/[Controller]")]
-    public class UsersController : BaseController
+    [Authorize]
+      public class UsersController : BaseController
     {
         private readonly DataContext _context;
         
@@ -16,7 +16,7 @@ namespace TESTAPI.Controllers
             _context = context;
         }
         
-
+        [AllowAnonymous]
         [HttpGet]
 
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers() {
