@@ -1,0 +1,20 @@
+<div class="container mt-5"  *ngIf="!isregister">
+    <div style="text-align :center">
+        <h1> Find your Medicine</h1>
+        <p class="lead">Come on into view medicine... all you need to do sign up!</p>
+        <button class="btn btn-primary btn-lg me-2" (click)="clickRegister()"> Register</button>
+        <button class="btn btn-primary btn-info btn-lg me-2"> Learn More</button>
+    </div>
+</div>
+
+<div class="container mt-5" *ngIf="isregister">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <!-- <p class="lead"> Register Screen is coming soon</p> -->
+            <!-- <app-register [userFromHomeScreen]="users" (cancelRegisterMode)="cancelRegisterMode($event)"></app-register> 
+            -->
+            <app-register (cancelRegisterMode)="cancelRegisterMode($event)"></app-register>
+        </div>
+
+    </div>
+</div>
